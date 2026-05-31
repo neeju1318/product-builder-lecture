@@ -1,3 +1,19 @@
+:root {
+    --bg-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    --container-bg: rgba(255, 255, 255, 0.1);
+    --text-color: #fff;
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="light"] {
+    --bg-gradient: linear-gradient(-45deg, #f1f2f6, #dfe4ea, #ced6e0, #a4b0be);
+    --container-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #2f3542;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -5,11 +21,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: var(--bg-gradient);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     position: relative;
     overflow: hidden;
+    transition: background 0.5s ease;
 }
 
 body::before {
@@ -37,20 +54,50 @@ body::before {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--container-bg);
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: var(--card-shadow);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid var(--border-color);
+    position: relative;
+    min-width: 320px;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+#theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#theme-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(20deg);
 }
 
 h1 {
-    color: #fff;
+    color: var(--text-color);
     margin-bottom: 30px;
     font-size: 2.5em;
-    text-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: color 0.5s ease;
 }
 
 #generate-btn {
@@ -99,11 +146,23 @@ h1 {
     opacity: 0;
     transform: scale(0.5);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
+/* Color ranges for lottery balls */
+.ball-1-10 { background: radial-gradient(circle at 30% 30%, #fbc531, #e1b12c) !important; color: #000 !important; box-shadow: 0 0 20px rgba(251, 197, 49, 0.6) !important; }
+.ball-11-20 { background: radial-gradient(circle at 30% 30%, #487eb0, #40739e) !important; box-shadow: 0 0 20px rgba(72, 126, 176, 0.6) !important; }
+.ball-21-30 { background: radial-gradient(circle at 30% 30%, #e84118, #c23616) !important; box-shadow: 0 0 20px rgba(232, 65, 24, 0.6) !important; }
+.ball-31-40 { background: radial-gradient(circle at 30% 30%, #7f8c8d, #2f3640) !important; box-shadow: 0 0 20px rgba(127, 140, 141, 0.6) !important; }
+.ball-41-45 { background: radial-gradient(circle at 30% 30%, #4cd137, #44bd32) !important; box-shadow: 0 0 20px rgba(76, 209, 55, 0.6) !important; }
+
 @keyframes number-appear {
-    to {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    100% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 }
