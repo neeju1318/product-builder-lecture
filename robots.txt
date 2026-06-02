@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neeju1318.github.io/product-builder-lecture/sitemap.xml

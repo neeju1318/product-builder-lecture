@@ -3,17 +3,21 @@
 
 ## Overview
 
-This project is a web-based application that generates and displays lottery number recommendations. Users can click a button to get 5 sets of 6 unique random numbers between 1 and 45.
+This project is a content-rich, AdSense-ready web application for Korean Lotto 6/45. Users choose one of three recommendation modes — Hot (frequently drawn), Cold (rarely drawn), or pure Random — to generate number sets, and can browse recent winning numbers, frequency statistics, a lottery guide, and FAQ.
 
 ## Features
 
-*   **Number Generation:** Generates 5 unique sets of 6 random numbers per request.
-*   **User Interface:** A clean and simple interface to display the numbers.
-*   **One-Click Generation:** A button to trigger the number generation.
-*   **Theme Toggle:** Supports Dark Mode (default) and Light Mode with a simple toggle switch. User preference is persisted.
-*   **Animations:** Engaging animations for a more dynamic user experience, including staggered entrance effects.
-*   **Partnership Inquiry Form:** A dedicated section for businesses to reach out for inquiries, powered by Formspree.
-*   **Google AdSense Integration:** Integrated Google AdSense for monetization, including the required verification meta tag and auto-ads script.
+*   **Three Recommendation Modes:** Hot (weighted toward frequently drawn numbers), Cold (weighted toward rarely drawn numbers), and pure Random. Hot/Cold weights are computed client-side from the last 10 draws.
+*   **Embedded Real Draw Data:** The most recent 10 verified Lotto 6/45 results are bundled in `main.js`. Live fetching was ruled out — the legacy 동행복권 JSON API now 302-redirects to its homepage, and a static site cannot call it from the browser due to CORS. Data is manually updatable (prepend new draws to the `DRAWS` array).
+*   **Recent Winning Numbers:** Grid of the last 10 draws with round, date, six numbers, and bonus.
+*   **Frequency Statistics:** Per-number (1–45) appearance chart over the last 10 draws, plus Hot/Cold TOP 6 summaries.
+*   **Content Sections (for AdSense quality):** Lottery guide (rules, odds table, tips), FAQ, and a responsible-gaming notice.
+*   **Required Policy Pages:** `privacy.html` (개인정보처리방침, includes the mandatory AdSense cookie/ads disclosure) and `terms.html` (이용약관).
+*   **SEO:** Meta description/keywords, Open Graph, canonical, JSON-LD, `robots.txt`, and `sitemap.xml`.
+*   **Theme Toggle:** Dark (default) / Light mode, persisted in localStorage.
+*   **Partnership Inquiry Form:** Formspree-powered contact form.
+*   **Comments:** Disqus thread.
+*   **Google AdSense Integration:** Loader script + account verification meta tag in `<head>`, `ads.txt` at root, and in-content responsive ad units (replace `data-ad-slot` placeholders with real slot IDs once units are created).
 
 ## Design and Style
 
@@ -45,5 +49,10 @@ This project is a web-based application that generates and displays lottery numb
     *   Add the AdSense auto-ads script to the `<head>`.
     *   Add the AdSense account verification meta tag.
     *   Create `ads.txt` with the authorized publisher information.
-5.  **Deployment:**
+5.  **Optimize for AdSense Approval & Add Hot/Cold/Random Modes:** (Completed)
+    *   Rebuild as a multi-section, content-rich, responsive site with sticky nav and footer.
+    *   Add Hot/Cold/Random generation modes driven by verified last-10-draw data.
+    *   Add recent-draws grid, frequency chart, guide, FAQ, and responsible-gaming notice.
+    *   Add required `privacy.html` and `terms.html`, plus `robots.txt` and `sitemap.xml`.
+6.  **Deployment:**
     *   Commit and push changes to GitHub.
