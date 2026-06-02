@@ -230,3 +230,10 @@ h1 {
         transform: scale(1) translateY(0);
     }
 }
+
+.ad-container {
+    margin: 30px 0;
+    min-height: 90px;
+    text-align: center;
+    overflow: hidden;
+}

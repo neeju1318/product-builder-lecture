@@ -13,6 +13,7 @@ This project is a web-based application that generates and displays lottery numb
 *   **Theme Toggle:** Supports Dark Mode (default) and Light Mode with a simple toggle switch. User preference is persisted.
 *   **Animations:** Engaging animations for a more dynamic user experience, including staggered entrance effects.
 *   **Partnership Inquiry Form:** A dedicated section for businesses to reach out for inquiries, powered by Formspree.
+*   **Google AdSense Integration:** Integrated Google AdSense for monetization, including the required verification meta tag and auto-ads script.
 
 ## Design and Style
 
@@ -40,5 +41,9 @@ This project is a web-based application that generates and displays lottery numb
     *   Create a Formspree-powered contact form (`https://formspree.io/f/xwvzgyoz`).
     *   Style the form to match the existing premium look.
     *   Ensure responsiveness and clear labels.
-4.  **Deployment:**
+4.  **Integrate Google AdSense:** (Completed)
+    *   Add the AdSense auto-ads script to the `<head>`.
+    *   Add the AdSense account verification meta tag.
+    *   Create `ads.txt` with the authorized publisher information.
+5.  **Deployment:**
     *   Commit and push changes to GitHub.
