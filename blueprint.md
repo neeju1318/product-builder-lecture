@@ -12,6 +12,7 @@ This project is a web-based application that generates and displays lottery numb
 *   **One-Click Generation:** A button to trigger the number generation.
 *   **Theme Toggle:** Supports Dark Mode (default) and Light Mode with a simple toggle switch. User preference is persisted.
 *   **Animations:** Engaging animations for a more dynamic user experience, including staggered entrance effects.
+*   **Partnership Inquiry Form:** A dedicated section for businesses to reach out for inquiries, powered by Formspree.
 
 ## Design and Style
 
@@ -21,18 +22,23 @@ This project is a web-based application that generates and displays lottery numb
     *   **Light Mode:** Clean, soft gray/blue gradient background with high-contrast text and container.
 *   **Typography:** Clear and readable fonts for the title and numbers.
 *   **Color Scheme:** Dynamic color variables for text, background, and borders.
-*   **Interactivity:** A button with a clear call to action and hover effects.
+*   **Interactivity:** A button with a clear call to action and hover effects. Form inputs with glowing focus states.
 *   **Animations:** Numbers fade in, scale up, and slide up when generated. The background has a subtle gradient animation.
 *   **Visual Effects:** Glassmorphism (`backdrop-filter`) for the container. A subtle noise texture on the background, and soft glows/shadows on the balls and button. Each ball has a radial gradient to simulate 3D depth.
+*   **Form Design:** Elegant input fields with smooth transitions, matching the glassmorphism aesthetic of the site.
 
 ## Current Plan
 
-1.  **Add Theme Support:**
+1.  **Add Theme Support:** (Completed)
     *   Implement Dark/Light mode using CSS variables.
     *   Add a theme toggle button and JavaScript logic for persistence.
-2.  **Enhance Visuals (Latest Version):**
+2.  **Enhance Visuals:** (Completed)
     *   Implement color-coded lottery balls based on number ranges.
     *   Add radial gradients to balls for a 3D effect.
     *   Refine entrance animations for a smoother feel.
-3.  **Deployment:**
+3.  **Add Partnership Inquiry Form:** (Completed)
+    *   Create a Formspree-powered contact form (`https://formspree.io/f/xwvzgyoz`).
+    *   Style the form to match the existing premium look.
+    *   Ensure responsiveness and clear labels.
+4.  **Deployment:**
     *   Commit and push changes to GitHub.

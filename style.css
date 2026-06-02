@@ -159,6 +159,67 @@ h1 {
 .ball-31-40 { background: radial-gradient(circle at 30% 30%, #7f8c8d, #2f3640) !important; box-shadow: 0 0 20px rgba(127, 140, 141, 0.6) !important; }
 .ball-41-45 { background: radial-gradient(circle at 30% 30%, #4cd137, #44bd32) !important; box-shadow: 0 0 20px rgba(76, 209, 55, 0.6) !important; }
 
+.partnership-form {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.partnership-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+#submit-btn {
+    width: 100%;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: var(--btn-shadow);
+}
+
 @keyframes number-appear {
     0% {
         opacity: 0;
