@@ -13,8 +13,8 @@ This project is a collection of useful utility tools for daily life. It started 
 *   **Frequency Statistics:** Per-number appearance chart over the last 10 draws.
 
 ### 2. Meal Menu Recommender (식사 메뉴 추천)
-*   **Random Recommendation:** Suggests a meal menu with a high-quality image when the user clicks a button.
-*   **Visual Appeal:** Displays the food name and an appetizing image to help users decide what to eat.
+*   **Categorized Database:** Menus are organized into cuisine categories (한식/일식/중식/양식/아시안) and recommend the specific sub-menu within a category, not just a broad category.
+*   **Text-Only Celebration:** Shows the category badge and the menu name as bold text (no image). On reveal the name pops out with an overshoot animation and a confetti burst for a celebratory feel.
 
 ### Shared Features
 *   **Theme Toggle:** Dark (default) / Light mode, persisted in localStorage.
@@ -31,21 +31,12 @@ This project is a collection of useful utility tools for daily life. It started 
 
 ## Current Plan
 
-1.  **Rebrand to 'Daily Utility Tools':**
-    *   Update `index.html` title, header, and branding.
-    *   Restructure the layout to accommodate multiple tools.
-2.  **Implement Meal Menu Recommender:**
-    *   Create a Web Component `<meal-recommender>` in `main.js`.
-    *   Prepare a list of meal menus with corresponding images (using high-quality free stock images or placeholders).
-    *   Add the component to the main page.
-3.  **Refactor Lotto Generator (Optional but Recommended):**
-    *   Encapsulate the Lotto generator into a Web Component `<lotto-generator>` for better organization.
-4.  **Enhance UI/UX:**
-    *   Add a "Tool Selector" or "Dashboard" feel to the top of the page.
-    *   Ensure consistent styling across all tools.
-5.  **Update Content:**
-    *   Update SEO metadata to reflect the broader scope.
-    *   Ensure legal pages (`privacy.html`, `terms.html`) still apply.
-6.  **Verification:**
-    *   Check for errors in console and preview.
-    *   Test responsiveness.
+1.  **Simplify and Consolidated Core Logic in `main.js`:**
+    *   Overwrite `main.js` with a unified script handling the Meal Recommender, Lotto Generator, and Theme Toggle.
+    *   Implement a massive meal database (100+ items) for the Recommender.
+    *   Add `canvas-confetti` for interactive feedback on meal recommendations.
+2.  **Verify UI Integration:**
+    *   Ensure `index.html` has the necessary IDs: `recommend-meal-btn`, `meal-display`, `total-menu-count`, `theme-btn`, `generate-btn`, and `numbers-container`.
+3.  **Enhance User Experience:**
+    *   Confirm the confetti effect works as expected.
+    *   Verify the random meal and number generation logic.
