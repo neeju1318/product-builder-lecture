@@ -5,6 +5,7 @@
     --text-color: #ffffff;
     --text-muted: #b0b0b8;
     --accent-color: #ff4757;
+    --accent-secondary: #54a0ff;
     --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     --border-color: rgba(255, 255, 255, 0.14);
     --btn-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
@@ -19,6 +20,7 @@
     --text-color: #1a1a1a;
     --text-muted: #5a5a66;
     --accent-color: #e84118;
+    --accent-secondary: #2e86de;
     --card-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.08);
     --border-color: rgba(0, 0, 0, 0.1);
     --btn-shadow: 0 4px 15px rgba(232, 65, 24, 0.2);
@@ -28,6 +30,8 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     margin: 0;
@@ -35,6 +39,9 @@ body {
     color: var(--text-color);
     line-height: 1.7;
     transition: background-color 0.4s ease, color 0.4s ease;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 71, 87, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(84, 160, 255, 0.05) 0%, transparent 40%);
 }
 
 /* ===================== 헤더 ===================== */
@@ -105,11 +112,11 @@ main {
 
 .hero {
     text-align: center;
-    padding: 30px 0 10px;
+    padding: 40px 0 20px;
 }
 
 h1 {
-    font-size: 2.6em;
+    font-size: 2.8em;
     font-weight: 800;
     letter-spacing: -1.5px;
     margin: 10px 0 16px;
@@ -119,43 +126,81 @@ h1 {
     max-width: 640px;
     margin: 0 auto 28px;
     color: var(--text-muted);
-    font-size: 1.05em;
+    font-size: 1.1em;
 }
-
-.lead strong { color: var(--text-color); }
 
 .card {
     background-color: var(--container-bg);
     border: 1px solid var(--border-color);
-    border-radius: 18px;
+    border-radius: 24px;
     box-shadow: var(--card-shadow);
     padding: 32px;
-    margin-top: 30px;
+    margin-top: 40px;
+    overflow: hidden;
 }
 
 h2 {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 800;
-    margin: 0 0 8px;
+    margin: 0 0 12px;
     letter-spacing: -0.5px;
 }
 
-h3 {
-    font-size: 1.2em;
-    font-weight: 700;
-    margin: 24px 0 8px;
-}
-
-.section-sub, .source-note {
+.section-desc {
     color: var(--text-muted);
-    font-size: 0.95em;
-    margin-top: 0;
+    margin-bottom: 24px;
 }
 
-.source-note { margin-top: 18px; }
-.card a, .source-note a { color: var(--accent-color); }
+/* ===================== 툴 허브 (대시보드) ===================== */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 600px;
+    margin: 30px auto 0;
+}
 
-/* ===================== 모드 선택 ===================== */
+.tool-card {
+    background: var(--container-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 12px 24px rgba(255, 71, 87, 0.15);
+}
+
+.tool-icon { font-size: 2.5em; }
+
+.tool-card h3 { margin: 0; font-size: 1.15em; font-weight: 700; }
+.tool-card p { margin: 0; font-size: 0.85em; color: var(--text-muted); }
+
+/* ===================== 공통 액션 영역 ===================== */
+.action-area {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* ===================== 로또 번호 생성기 ===================== */
 .mode-selector {
     display: flex;
     justify-content: center;
@@ -173,12 +218,10 @@ h3 {
     border: 2px solid var(--border-color);
     border-radius: 14px;
     padding: 14px 20px;
-    cursor: pointer;
     color: var(--text-color);
     font-weight: 700;
     font-size: 1.05em;
     min-width: 140px;
-    transition: all 0.25s ease;
 }
 
 .mode-btn span {
@@ -196,6 +239,7 @@ h3 {
 }
 
 .mode-desc {
+    text-align: center;
     color: var(--text-muted);
     font-size: 0.95em;
     min-height: 1.4em;
@@ -208,10 +252,6 @@ h3 {
     padding: 15px 40px;
     font-size: 1.15em;
     font-weight: bold;
-    cursor: pointer;
-    border: none;
-    border-radius: 12px;
-    transition: all 0.3s ease;
     box-shadow: var(--btn-shadow);
 }
 
@@ -227,7 +267,6 @@ h3 {
     flex-direction: column;
     align-items: center;
     gap: 14px;
-    min-height: 60px;
 }
 
 .number-set {
@@ -237,7 +276,7 @@ h3 {
     flex-wrap: wrap;
 }
 
-/* ===================== 볼 ===================== */
+/* ===================== 볼 (Lotto Balls) ===================== */
 .number-set span,
 .draw-balls span,
 .mini-balls span {
@@ -267,18 +306,132 @@ h3 {
 .ball-31-40 { background: radial-gradient(circle at 30% 30%, #7f8c8d, #2f3640) !important; }
 .ball-41-45 { background: radial-gradient(circle at 30% 30%, #4cd137, #44bd32) !important; }
 
-.disclaimer-mini {
-    margin-top: 22px;
-    font-size: 0.85em;
+/* ===================== 로또 서브 섹션 (Details) ===================== */
+.lotto-sub-sections { margin-top: 30px; }
+
+details {
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    background: var(--fill-track);
+    transition: all 0.3s ease;
+}
+
+details[open] { background: var(--container-bg); }
+
+summary {
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::after {
+    content: '↓';
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after { transform: rotate(180deg); }
+
+.details-content, .guide-content { padding: 0 20px 20px; }
+
+/* ===================== 식사 메뉴 추천 ===================== */
+.meal-recommender-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.meal-display {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/3;
+    background: var(--fill-track);
+    border-radius: 20px;
+    border: 2px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.meal-placeholder {
+    text-align: center;
     color: var(--text-muted);
 }
 
-/* ===================== 최근 당첨번호 ===================== */
+.meal-placeholder .icon { font-size: 4em; display: block; margin-bottom: 10px; }
+
+.meal-result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    animation: fade-in 0.6s ease;
+}
+
+.meal-image-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.meal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.meal-result:hover img { transform: scale(1.05); }
+
+.meal-info {
+    padding: 15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+}
+
+.meal-name {
+    font-size: 1.4em;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#recommend-meal-btn {
+    background-color: var(--accent-secondary);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.15em;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(84, 160, 255, 0.4);
+}
+
+#recommend-meal-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+    box-shadow: 0 8px 25px rgba(84, 160, 255, 0.5);
+}
+
+/* ===================== 최근 당첨번호 그리드 ===================== */
 .recent-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 14px;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .draw-item {
@@ -295,9 +448,6 @@ h3 {
     font-size: 0.9em;
 }
 
-.draw-round { font-weight: 700; }
-.draw-date { color: var(--text-muted); }
-
 .draw-balls {
     display: flex;
     align-items: center;
@@ -305,29 +455,24 @@ h3 {
     flex-wrap: wrap;
 }
 
-.draw-balls span,
-.mini-balls span {
+.draw-balls span, .mini-balls span {
     width: 38px;
     height: 38px;
     font-size: 0.95em;
 }
 
 .plus-sign {
-    background: none !important;
-    box-shadow: none !important;
-    color: var(--text-muted) !important;
-    width: auto !important;
+    color: var(--text-muted);
     font-size: 1.1em;
+    margin: 0 4px;
 }
-
-.bonus-ball { border: 2px solid #fff; }
 
 /* ===================== 출현 통계 차트 ===================== */
 .freq-chart {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     gap: 6px;
-    margin: 22px 0 28px;
+    margin: 20px 0;
 }
 
 .freq-bar {
@@ -351,8 +496,7 @@ h3 {
 
 .freq-fill {
     width: 100%;
-    min-height: 3px;
-    border-radius: 4px 4px 0 0;
+    min-height: 2px;
     transition: height 0.6s ease;
 }
 
@@ -362,88 +506,49 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    margin-top: 10px;
 }
 
 .summary-box {
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 16px;
     text-align: center;
 }
 
 .summary-box h3 { margin: 0 0 12px; font-size: 1.05em; }
-.hot-box  { background: linear-gradient(180deg, rgba(255,71,87,0.10), transparent); }
-.cold-box { background: linear-gradient(180deg, rgba(72,126,176,0.12), transparent); }
 
-.mini-balls {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-
-/* ===================== 가이드 / 표 / 리스트 ===================== */
-.card p { color: var(--text-muted); }
-.card p strong { color: var(--text-color); }
-
-.table-wrap { overflow-x: auto; }
-
+/* ===================== 가이드 / 표 ===================== */
 .info-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 12px;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
 .info-table th, .info-table td {
     border: 1px solid var(--border-color);
-    padding: 10px 12px;
+    padding: 10px;
     text-align: center;
 }
 
-.info-table th { background: var(--fill-track); font-weight: 700; }
-.info-table td { color: var(--text-muted); }
+.info-table th { background: var(--fill-track); }
 
-.tip-list, .notice-card ul, #faq p { color: var(--text-muted); }
-.tip-list li, .notice-card li { margin-bottom: 8px; }
-
-/* ===================== FAQ ===================== */
-#faq details {
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    background: var(--fill-track);
-}
-
-#faq summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--text-color);
-}
-
-#faq details[open] summary { margin-bottom: 8px; color: var(--accent-color); }
-#faq p { margin: 0; }
-
-/* ===================== 안내 카드 ===================== */
-.notice-card {
-    border-color: var(--accent-color);
-}
+.mt-10 { margin-top: 10px; }
 
 /* ===================== 폼 ===================== */
-.partnership-form { margin-top: 18px; }
+.partnership-form { margin-top: 20px; }
 .form-group { margin-bottom: 15px; }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
+    padding: 14px 18px;
+    border-radius: 12px;
     border: 1px solid var(--border-color);
     background-color: var(--fill-track);
     color: var(--text-color);
     font-size: 1em;
-    font-family: inherit;
     transition: all 0.3s ease;
 }
 
@@ -451,38 +556,26 @@ h3 {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+    box-shadow: 0 0 12px rgba(255, 71, 87, 0.2);
 }
 
-.form-group textarea { height: 110px; resize: vertical; }
+.form-group textarea { height: 120px; resize: none; }
 
 #submit-btn {
     width: 100%;
     background-color: transparent;
-    color: var(--text-color);
     border: 1px solid var(--accent-color);
-    padding: 12px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: var(--text-color);
+    padding: 14px;
+    font-weight: 700;
 }
 
 #submit-btn:hover { background-color: var(--accent-color); color: white; box-shadow: var(--btn-shadow); }
 
-/* ===================== 광고 ===================== */
-.ad-container {
-    margin: 30px 0;
-    min-height: 90px;
-    text-align: center;
-    overflow: hidden;
-}
-
 /* ===================== 푸터 ===================== */
 .site-footer {
     border-top: 1px solid var(--border-color);
-    padding: 30px 20px 40px;
+    padding: 40px 20px;
     text-align: center;
     background: var(--header-bg);
 }
@@ -491,46 +584,43 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .footer-nav a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.92em;
+    font-size: 0.9em;
     font-weight: 600;
 }
 
-.footer-nav a:hover { color: var(--accent-color); }
-
 .footer-disclaimer {
-    max-width: 680px;
-    margin: 0 auto 12px;
-    font-size: 0.82em;
+    max-width: 600px;
+    margin: 0 auto 10px;
+    font-size: 0.8em;
     color: var(--text-muted);
-    line-height: 1.6;
 }
 
-.copyright { font-size: 0.82em; color: var(--text-muted); margin: 0; }
+.copyright { font-size: 0.8em; color: var(--text-muted); }
 
-/* ===================== 정책 페이지 ===================== */
-.legal-page { max-width: 800px; }
-.legal-page h2 { margin-top: 28px; font-size: 1.25em; }
-.legal-page p, .legal-page li { color: var(--text-muted); }
-.back-link { display: inline-block; margin-top: 24px; color: var(--accent-color); text-decoration: none; font-weight: 700; }
-
+/* ===================== 애니메이션 ===================== */
 @keyframes number-appear {
     0%   { opacity: 0; transform: scale(0.5) translateY(20px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===================== 반응형 ===================== */
 @media (max-width: 680px) {
-    h1 { font-size: 2em; }
-    .card { padding: 22px; }
+    h1 { font-size: 2.2em; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px; }
     .nav-inner { flex-wrap: wrap; }
-    .main-nav { gap: 12px; width: 100%; order: 3; margin-left: 0; }
+    .main-nav { gap: 12px; width: 100%; order: 3; margin-left: 0; justify-content: center; }
     .freq-chart { grid-template-columns: repeat(9, 1fr); }
     .hotcold-summary { grid-template-columns: 1fr; }
     .number-set span { width: 42px; height: 42px; }
