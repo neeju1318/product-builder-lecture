@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const span = document.createElement('span');
         span.textContent = number;
         span.classList.add(ballClass(number));
-        if (delayIndex != null) span.style.animationDelay = \`\${delayIndex * 0.1}s\`;
+        if (delayIndex != null) span.style.animationDelay = `${delayIndex * 0.1}s`;
         return span;
     }
 
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             DRAWS.forEach(d => {
                 const item = document.createElement('div');
                 item.classList.add('draw-item');
-                item.innerHTML = \`<div class="draw-head"><span class="draw-round">제\${d.round}회</span><span class="draw-date">\${d.date}</span></div>\`;
+                item.innerHTML = `<div class="draw-head"><span class="draw-round">제${d.round}회</span><span class="draw-date">${d.date}</span></div>`;
                 const balls = document.createElement('div');
                 balls.classList.add('draw-balls');
                 d.numbers.forEach(n => balls.appendChild(makeBall(n)));
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const bar = document.createElement('div');
                 bar.classList.add('freq-bar');
                 const heightPct = maxFreq ? (freq[n] / maxFreq) * 100 : 0;
-                bar.innerHTML = \`<div class="freq-count">\${freq[n]}</div><div class="freq-fill-wrap"><div class="freq-fill \${ballClass(n)}" style="height:\${heightPct}%"></div></div><div class="freq-label">\${n}</div>\`;
+                bar.innerHTML = `<div class="freq-count">${freq[n]}</div><div class="freq-fill-wrap"><div class="freq-fill ${ballClass(n)}" style="height:${heightPct}%"></div></div><div class="freq-label">${n}</div>`;
                 chart.appendChild(bar);
             }
         }
@@ -184,16 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 const meal = MEALS[Math.floor(Math.random() * MEALS.length)];
-                mealDisplay.innerHTML = \`
+                mealDisplay.innerHTML = `
                     <div class="meal-result">
                         <div class="meal-image-container">
-                            <img src="\${meal.image}" alt="\${meal.name}">
+                            <img src="${meal.image}" alt="${meal.name}">
                         </div>
                         <div class="meal-info">
-                            <h3 class="meal-name">\${meal.name}</h3>
+                            <h3 class="meal-name">${meal.name}</h3>
                         </div>
                     </div>
-                \`;
+                `;
             }, 600);
         });
     }
