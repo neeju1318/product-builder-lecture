@@ -53,7 +53,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
         crossorigin="anonymous"></script>
 
-    <!-- 구조화 데이터: 레시피 모음 + 탐색 경로 -->
+    <!-- 구조화 데이터: 레시피 모음 + 탐색 경로 + FAQ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -63,13 +63,29 @@
           "name": "야매 요리 레시피",
           "url": "https://neeju.net/recipe.html",
           "inLanguage": "ko-KR",
-          "description": "취사병 시절과 자취 7년 경험에서 나온, 계량도 과학적 근거도 이론도 없는 말 그대로의 '야매' 요리 레시피 모음입니다. 현재 준비 중입니다."
+          "description": "취사병 시절과 자취 7년 경험에서 나온, 계량도 과학적 근거도 이론도 없는 말 그대로의 '야매' 요리 레시피 모음입니다. 현재 준비 중입니다.",
+          "dateModified": "2026-06-06T12:00:00+09:00"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://neeju.net/" },
             { "@type": "ListItem", "position": 2, "name": "야매 요리 레시피", "item": "https://neeju.net/recipe.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "야매 요리 레시피란 무엇인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "전문적인 계량이나 복잡한 조리법 대신, 자취생의 눈높이에서 쉽고 빠르게 만들 수 있는 실전 요리법을 의미합니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "레시피는 언제 업데이트되나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "현재 준비 중이며, 전직 취사병 출신 개발자의 경험을 바탕으로 엄선된 레시피를 순차적으로 공개할 예정입니다." }
+            }
           ]
         }
       ]
@@ -83,8 +99,13 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x2ntzlyr93");
     </script>
+    <!-- Kakao SDK (카카오톡 공유) -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
     <!-- ===== 헤더 / 내비게이션 ===== -->
     <header class="site-header">
         <div class="nav-inner">
@@ -108,13 +129,25 @@
         <!-- ===== 야매 요리 레시피 ===== -->
         <section id="recipe" class="card">
             <div class="section-header">
-                <h1>🍳 야매 요리 레시피</h1>
+                <h1>🍳 계량 없는 실전! 야매 요리 레시피</h1>
                 <div class="menu-count-badge coming-badge">준비 중</div>
             </div>
             <p class="section-desc">
                 취사병 시절 수백 명 분의 밥을 짓던 기억과, 자취 7년 동안 냉장고를 털어 끼니를 때우던
                 경험을 떠올리며 생각나는 요리를 하나하나 적어 나갈 예정입니다.
             </p>
+
+            <div class="last-updated-chip">최종 업데이트: 2026년 6월 6일</div>
+
+            <!-- GEO: Info Block (E-E-A-T) -->
+            <div class="info-block-geo">
+                <h3>왜 '야매' 레시피인가요?</h3>
+                <p>
+                    요리책에 나오는 g(그램)이나 ml(밀리리터) 단위는 자취생들에게 사치일 때가 많습니다. 
+                    <strong>전직 취사병</strong>으로서 대량 배식의 노하우와, <strong>7년 차 자취생</strong>으로서의 생존 전략을 결합해
+                    "적당히 넣어도 맛있는" 진짜 현실 레시피를 공유하고자 합니다.
+                </p>
+            </div>
 
             <!-- 야매 정신 강조 -->
             <div class="yamae-note">
@@ -142,6 +175,41 @@
                 ※ 본 레시피는 개인 경험에 기반한 비전문 조리법입니다. 식재료 알레르기, 위생, 가열 안전에 유의하시고,
                 정확한 조리·영양 정보가 필요하면 전문 자료를 참고하세요.
             </p>
+
+            <!-- FAQ Section -->
+            <div class="lotto-sub-sections">
+                <details>
+                    <summary>자주 묻는 질문 (FAQ)</summary>
+                    <div class="guide-content">
+                        <div class="faq-list">
+                            <p class="faq-q">Q. 야매 요리 레시피란 무엇인가요?</p>
+                            <p class="faq-a">전문적인 계량이나 복잡한 조리법 대신, 자취생의 눈높이에서 쉽고 빠르게 만들 수 있는 실전 요리법을 의미합니다.</p>
+                            <p class="faq-q">Q. 레시피는 언제 업데이트되나요?</p>
+                            <p class="faq-a">현재 준비 중이며, 전직 취사병 출신 개발자의 경험을 바탕으로 엄선된 레시피를 순차적으로 공개할 예정입니다.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ===== SNS 공유 (Virality) ===== -->
+        <section class="card share-section">
+            <h2>자취 동지에게 공유하기</h2>
+            <p>계량 없는 야매 레시피, 함께 살아남을 자취 동지에게도 알려주세요!</p>
+            <div class="share-buttons">
+                <button class="share-btn kakao" id="share-kakao" title="카카오톡 공유">
+                    <span class="icon">💬</span> 카카오톡
+                </button>
+                <button class="share-btn twitter" id="share-twitter" title="X(트위터) 공유">
+                    <span class="icon">𝕏</span> 공유하기
+                </button>
+                <button class="share-btn facebook" id="share-facebook" title="페이스북 공유">
+                    <span class="icon">f</span> 공유하기
+                </button>
+                <button class="share-btn copy-url" id="copy-url" title="링크 복사">
+                    <span class="icon">🔗</span> 링크 복사
+                </button>
+            </div>
         </section>
 
         <!-- 광고 (인-콘텐츠) -->

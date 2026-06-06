@@ -53,7 +53,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
         crossorigin="anonymous"></script>
 
-    <!-- 구조화 데이터: 도구 + 탐색 경로 + 자주 묻는 질문 -->
+    <!-- 구조화 데이터: 도구 + 탐색 경로 + 자주 묻는 질문 + 하우투 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,7 +65,27 @@
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "All",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
-          "description": "최근 10회차 당첨 데이터를 분석해 핫·콜드·랜덤 방식으로 로또 6/45 번호를 추천하는 무료 도구입니다."
+          "description": "최근 10회차 당첨 데이터를 분석해 핫·콜드·랜덤 방식으로 로또 6/45 번호를 추천하는 무료 도구입니다.",
+          "dateModified": "2026-06-06T12:00:00+09:00"
+        },
+        {
+          "@type": "HowTo",
+          "name": "로또 번호 생성하는 방법",
+          "description": "분석 데이터를 바탕으로 나만의 로또 번호를 생성해보세요.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "핫넘버, 콜드넘버, 또는 완전 랜덤 중 원하는 생성 방식을 선택합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "'번호 생성하기' 버튼을 클릭합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "생성된 6개의 번호를 확인하고, 필요하다면 다시 생성합니다."
+            }
+          ]
         },
         {
           "@type": "BreadcrumbList",
@@ -105,8 +125,13 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x2ntzlyr93");
     </script>
+    <!-- Kakao SDK (카카오톡 공유) -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
     <!-- ===== 헤더 / 내비게이션 ===== -->
     <header class="site-header">
         <div class="nav-inner">
@@ -211,6 +236,26 @@
                         </div>
                     </div>
                 </details>
+            </div>
+        </section>
+
+        <!-- ===== SNS 공유 (Virality) ===== -->
+        <section class="card share-section">
+            <h2>대박 예감! 이 번호를 친구와 공유해보세요</h2>
+            <p>행운은 나눌수록 커집니다. 친구에게 행운의 번호를 전달해보세요!</p>
+            <div class="share-buttons">
+                <button class="share-btn kakao" id="share-kakao" title="카카오톡 공유">
+                    <span class="icon">💬</span> 카카오톡
+                </button>
+                <button class="share-btn twitter" id="share-twitter" title="X(트위터) 공유">
+                    <span class="icon">𝕏</span> 공유하기
+                </button>
+                <button class="share-btn facebook" id="share-facebook" title="페이스북 공유">
+                    <span class="icon">f</span> 공유하기
+                </button>
+                <button class="share-btn copy-url" id="copy-url" title="링크 복사">
+                    <span class="icon">🔗</span> 링크 복사
+                </button>
             </div>
         </section>
 

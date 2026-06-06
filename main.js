@@ -254,4 +254,115 @@ document.addEventListener('DOMContentLoaded', () => {
             themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
     }
+
+    /* =========================================================
+     * 3. SNS 공유 (Virality) — 카카오톡 · X · 페이스북 · 링크 복사
+     * ======================================================= */
+    // ▼ 카카오톡 네이티브 공유를 켜려면 Kakao Developers(developers.kakao.com)에서
+    //   발급받은 JavaScript 키를 아래에 넣으세요. 비워두면 모바일 공유시트 또는
+    //   링크 복사로 자동 대체됩니다.
+    const KAKAO_JS_KEY = '';
+
+    function showToast(message) {
+        let container = document.getElementById('toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toast-container';
+            container.className = 'toast-container';
+            container.setAttribute('aria-live', 'polite');
+            document.body.appendChild(container);
+        }
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        container.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 2600);
+    }
+
+    (function initShare() {
+        const shareSection = document.querySelector('.share-section');
+        if (!shareSection) return;
+
+        const meta = (sel) => {
+            const el = document.querySelector(sel);
+            return el ? el.getAttribute('content') : '';
+        };
+        const canonical = document.querySelector('link[rel="canonical"]');
+        const shareUrl = (canonical && canonical.href) || window.location.href;
+        const shareTitle = meta('meta[property="og:title"]') || document.title;
+        const shareDesc = meta('meta[property="og:description"]') || '';
+        const shareImage = meta('meta[property="og:image"]') || '';
+
+        // 카카오 SDK 초기화 (키가 있을 때만)
+        let kakaoReady = false;
+        if (KAKAO_JS_KEY && window.Kakao) {
+            try {
+                if (!window.Kakao.isInitialized()) window.Kakao.init(KAKAO_JS_KEY);
+                kakaoReady = window.Kakao.isInitialized();
+            } catch (e) { kakaoReady = false; }
+        }
+
+        function copyLink(message) {
+            const done = () => showToast(message || '링크를 복사했어요! 친구에게 붙여넣기 해보세요 📋');
+            const fallback = () => {
+                const ta = document.createElement('textarea');
+                ta.value = shareUrl;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); done(); }
+                catch (e) { showToast('복사에 실패했어요. 주소창의 링크를 직접 복사해주세요.'); }
+                document.body.removeChild(ta);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(shareUrl).then(done).catch(fallback);
+            } else {
+                fallback();
+            }
+        }
+
+        function shareKakao() {
+            if (kakaoReady && window.Kakao.Share) {
+                window.Kakao.Share.sendDefault({
+                    objectType: 'feed',
+                    content: {
+                        title: shareTitle,
+                        description: shareDesc,
+                        imageUrl: shareImage,
+                        link: { mobileWebUrl: shareUrl, webUrl: shareUrl }
+                    },
+                    buttons: [{ title: '바로 사용해보기', link: { mobileWebUrl: shareUrl, webUrl: shareUrl } }]
+                });
+            } else if (navigator.share) {
+                navigator.share({ title: shareTitle, text: shareDesc, url: shareUrl }).catch(() => {});
+            } else {
+                copyLink('카카오 공유는 앱 키 설정이 필요해요. 대신 링크를 복사했어요! 📋');
+            }
+        }
+
+        function openPopup(url) {
+            window.open(url, '_blank', 'noopener,noreferrer,width=600,height=520');
+        }
+        function shareTwitter() {
+            openPopup('https://twitter.com/intent/tweet?text=' +
+                encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl));
+        }
+        function shareFacebook() {
+            openPopup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl));
+        }
+
+        shareSection.addEventListener('click', (e) => {
+            const btn = e.target.closest('.share-btn');
+            if (!btn) return;
+            if (btn.classList.contains('kakao')) shareKakao();
+            else if (btn.classList.contains('twitter')) shareTwitter();
+            else if (btn.classList.contains('facebook')) shareFacebook();
+            else if (btn.classList.contains('copy-url')) copyLink();
+        });
+    })();
 });

@@ -769,6 +769,62 @@ details[open] summary::after { transform: rotate(180deg); }
     100% { background-position: 0% 50%; }
 }
 
+/* ===================== GEO & E-E-A-T 관련 스타일 ===================== */
+.last-updated-chip {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 14px;
+    background: var(--fill-track);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.82em;
+    color: var(--text-muted);
+}
+
+.info-block-geo {
+    margin: 32px 0 16px;
+    padding: 24px;
+    background: var(--fill-track);
+    border-radius: 20px;
+    border-left: 4px solid var(--accent-secondary);
+}
+
+.info-block-geo h3 {
+    font-size: 1.25em;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+.info-block-geo p {
+    margin: 0;
+    font-size: 0.95em;
+    color: var(--text-muted);
+}
+
+.author-profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.author-text p {
+    margin: 0 0 12px;
+    font-size: 1em;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 /* ===================== 반응형 ===================== */
 @media (max-width: 680px) {
     h1 { font-size: 2.2em; }
@@ -779,4 +835,108 @@ details[open] summary::after { transform: rotate(180deg); }
     .freq-chart { grid-template-columns: repeat(9, 1fr); }
     .hotcold-summary { grid-template-columns: 1fr; }
     .number-set span { width: 42px; height: 42px; }
+}
+
+/* ===================== SNS 공유 (Virality) ===================== */
+.share-section {
+    text-align: center;
+}
+.share-section h2 {
+    margin-bottom: 8px;
+}
+.share-section > p {
+    color: var(--text-muted);
+    margin-bottom: 22px;
+}
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 999px;
+    font-size: 1em;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.share-btn .icon {
+    font-size: 1.15em;
+    line-height: 1;
+    font-weight: 800;
+}
+.share-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+.share-btn:active {
+    transform: translateY(0);
+}
+.share-btn:focus-visible {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+.share-btn.kakao {
+    background: #fee500;
+    color: #191600;
+}
+.share-btn.twitter {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.share-btn.facebook {
+    background: #1877f2;
+}
+.share-btn.copy-url {
+    background: var(--container-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+/* ===================== 토스트 알림 ===================== */
+.toast-container {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+.toast {
+    background: rgba(20, 20, 22, 0.95);
+    color: #fff;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-size: 0.95em;
+    font-weight: 600;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 88vw;
+    text-align: center;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 680px) {
+    .share-buttons { gap: 10px; }
+    .share-btn { padding: 11px 16px; font-size: 0.95em; }
 }

@@ -54,7 +54,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
         crossorigin="anonymous"></script>
 
-    <!-- 구조화 데이터: 조직 + 웹사이트 + 도구 -->
+    <!-- 구조화 데이터: 조직 + 웹사이트 + 도구 + FAQ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,7 +64,20 @@
           "@id": "https://neeju.net/#organization",
           "name": "일상생활 유틸리티 모음",
           "url": "https://neeju.net/",
-          "logo": "https://neeju.net/assets/smart-man.svg"
+          "logo": "https://neeju.net/assets/smart-man.svg",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "neeju@example.com"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://neeju.net/#author",
+          "name": "Neeju",
+          "description": "7년차 자취생이자 전직 취사병 출신의 유틸리티 도구 개발자",
+          "jobTitle": "Web Developer",
+          "url": "https://neeju.net/"
         },
         {
           "@type": "WebSite",
@@ -72,7 +85,24 @@
           "name": "일상생활 유틸리티 모음",
           "url": "https://neeju.net/",
           "inLanguage": "ko-KR",
-          "publisher": { "@id": "https://neeju.net/#organization" }
+          "publisher": { "@id": "https://neeju.net/#organization" },
+          "author": { "@id": "https://neeju.net/#author" },
+          "dateModified": "2026-06-06T12:00:00+09:00"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "이 사이트에서는 어떤 도구들을 이용할 수 있나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "로또 번호 생성기, 식사 메뉴 추천기, 그리고 준비 중인 야매 요리 레시피 등 일상생활에 유용한 다양한 웹 유틸리티를 제공합니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "모든 서비스가 무료인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "네, 별도의 회원가입이나 비용 결제 없이 모든 도구를 무료로 이용하실 수 있습니다." }
+            }
+          ]
         },
         {
           "@type": "WebApplication",
@@ -93,13 +123,6 @@
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
           "description": "한식·일식·중식·양식·아시안 카테고리의 다양한 메뉴 중에서 오늘 먹을 메뉴를 무작위로 추천하는 무료 도구입니다.",
           "isPartOf": { "@id": "https://neeju.net/#website" }
-        },
-        {
-          "@type": "CollectionPage",
-          "name": "야매 요리 레시피",
-          "url": "https://neeju.net/recipe.html",
-          "description": "취사병 시절과 자취 7년 경험에서 나온, 계량도 이론도 없는 말 그대로의 '야매' 요리 레시피 모음입니다. 현재 준비 중입니다.",
-          "isPartOf": { "@id": "https://neeju.net/#website" }
         }
       ]
     }
@@ -112,8 +135,13 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x2ntzlyr93");
     </script>
+    <!-- Kakao SDK (카카오톡 공유) -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
     <!-- ===== 헤더 / 내비게이션 ===== -->
     <header class="site-header">
         <div class="nav-inner">
@@ -134,28 +162,29 @@
     <main id="top">
         <!-- ===== 대문 / 주제 입장 ===== -->
         <section class="tool-hub hero">
-            <h1>일상생활 유용한 유틸리티</h1>
+            <h1>매일 고민되는 순간, 어떻게 해결하시나요?</h1>
             <p class="lead">
-                매일 반복되는 고민과 선택을 도와드리는 유용한 도구들을 한곳에 모았습니다.
-                아래 아이콘을 눌러 원하는 도구로 입장하세요.
+                로또 번호 고르기부터 오늘 점심 메뉴 결정까지,
+                일상의 사소하지만 어려운 선택을 돕기 위해 만든 유용한 도구 모음입니다.
             </p>
             <div class="tool-grid">
                 <a href="lotto.html" class="tool-card">
                     <span class="tool-icon">🎱</span>
-                    <h3>로또 번호 생성</h3>
-                    <p>핫·콜드·랜덤 분석 기반</p>
+                    <h3>어떤 로또 번호를 고를까?</h3>
+                    <p>최근 10회차 핫·콜드 데이터 분석</p>
                 </a>
                 <a href="meal.html" class="tool-card">
                     <span class="tool-icon">🍱</span>
-                    <h3>식사 메뉴 추천</h3>
-                    <p>오늘 뭐 먹지? 고민 해결!</p>
+                    <h3>오늘 뭐 먹지? 고민 해결!</h3>
+                    <p>130가지 메뉴 중 랜덤 추천</p>
                 </a>
                 <a href="recipe.html" class="tool-card">
                     <span class="tool-icon">🍳</span>
-                    <h3>야매 요리 레시피</h3>
-                    <p>계량도 이론도 없는 자취 야매 요리 <em>(준비 중)</em></p>
+                    <h3>진짜 자취생의 야매 요리</h3>
+                    <p>계량 없는 실전 레시피 <em>(준비 중)</em></p>
                 </a>
             </div>
+            <div class="last-updated-chip">최종 업데이트: 2026년 6월 6일</div>
         </section>
 
         <!-- 광고 (인-콘텐츠) -->
@@ -168,6 +197,59 @@
                  data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
+
+        <!-- ===== 개발자 노트 (E-E-A-T) ===== -->
+        <section id="about" class="card">
+            <h2>누가, 왜 이 사이트를 만들었나요?</h2>
+            <div class="author-profile">
+                <div class="author-text">
+                    <p>
+                        안녕하세요! <strong>7년차 자취생</strong>이자 <strong>전직 취사병</strong> 출신인 개발자 Neeju입니다.
+                        매일 아침 로또 번호를 고민하고, 점심마다 메뉴 결정을 못 해 시간을 허비하던 제 모습을 보며
+                        이 사이트를 직접 만들게 되었습니다.
+                    </p>
+                    <p>
+                        단순히 번호를 뽑아주는 것을 넘어, 최근 데이터를 시각화하고 실전에서 검증된(적어도 제 입에는 맛있었던)
+                        야매 요리법을 공유하여 여러분의 소중한 시간을 아껴드리고 싶습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ (GEO) ===== -->
+        <section id="faq" class="card">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <p class="faq-q">Q. 이 사이트에서는 어떤 도구들을 이용할 수 있나요?</p>
+                    <p class="faq-a">로또 번호 생성기, 식사 메뉴 추천기, 그리고 준비 중인 야매 요리 레시피 등 일상생활에 유용한 다양한 웹 유틸리티를 제공합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Q. 모든 서비스가 무료인가요?</p>
+                    <p class="faq-a">네, 별도의 회원가입이나 비용 결제 없이 모든 도구를 무료로 이용하실 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SNS 공유 (Virality) ===== -->
+        <section class="card share-section">
+            <h2>이 유용한 도구를 친구들에게도 알려주세요!</h2>
+            <p>함께 나누면 즐거움이 두 배가 됩니다. 지금 바로 공유해보세요.</p>
+            <div class="share-buttons">
+                <button class="share-btn kakao" id="share-kakao" title="카카오톡 공유">
+                    <span class="icon">💬</span> 카카오톡
+                </button>
+                <button class="share-btn twitter" id="share-twitter" title="X(트위터) 공유">
+                    <span class="icon">𝕏</span> 공유하기
+                </button>
+                <button class="share-btn facebook" id="share-facebook" title="페이스북 공유">
+                    <span class="icon">f</span> 공유하기
+                </button>
+                <button class="share-btn copy-url" id="copy-url" title="링크 복사">
+                    <span class="icon">🔗</span> 링크 복사
+                </button>
+            </div>
+        </section>
 
         <!-- ===== 소개 & 문의 ===== -->
         <section id="contact" class="card">

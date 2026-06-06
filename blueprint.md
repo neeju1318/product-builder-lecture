@@ -18,30 +18,31 @@ This project is a collection of useful utility tools for daily life. It started 
 
 ### Shared Features
 *   **Theme Toggle:** Dark (default) / Light mode, persisted in localStorage.
+*   **SNS Sharing:** Integrated sharing for KakaoTalk, Facebook, Twitter (X), and URL Copy to drive viral growth.
 *   **SEO:** Meta description/keywords, Open Graph, canonical, JSON-LD, `robots.txt`, and `sitemap.xml`.
-*   **Analytics & Tracking:** Integrated Google Analytics (gtag.js) and Microsoft Clarity for user behavior analysis.
+*   **GEO Optimized:** Freshness signals, enhanced structured data, and conversational content.
+*   **Analytics & Tracking:** Integrated Google Analytics (gtag.js) and Microsoft Clarity.
 *   **Google AdSense Integration:** Optimized for monetization.
 *   **Responsive Design:** Works perfectly on mobile and desktop.
 
-## Design and Style
+## Viral Growth Strategy
 
-*   **Hub Layout:** A central navigation area that lets users quickly switch between different tools.
-*   **Glassmorphism Aesthetic:** Semi-transparent containers with blur effects, vibrant gradients, and soft shadows.
-*   **Modern Components:** Use of Web Components for modularity and encapsulation.
-*   **Interactive UI:** Smooth transitions, animations, and glowing effects on interactive elements.
-
-### 3. Smart Man Mascot (스마트 맨 마스코트)
-*   **Visual Identity:** A friendly, intelligent-looking male character with a short sports cut and no glasses.
-*   **Purpose:** Used as a mascot or site representative to enhance the friendly utility tool vibe.
-*   **Implementation:** Scalable SVG asset for high-quality display on all devices.
+To encourage social sharing and virality, the site implements:
+1.  **KakaoTalk Integration:** Using the Kakao SDK for rich link sharing (title, description, and image) optimized for the Korean mobile market.
+2.  **Native Share API Support:** Leveraging the browser's native sharing capabilities where available.
+3.  **One-Click Copy:** A simple feedback-driven "Copy URL" button for universal sharing.
+4.  **Incentivized Messaging:** Encouraging users to share their results (e.g., "Share your lucky lotto numbers with friends!").
 
 ## Current Plan
 
-1.  **Create Smart Man Icon:**
-    *   Design a modern SVG icon of a smart-looking man (short hair, no glasses, kind expression).
-    *   Save the asset as `assets/smart-man.svg`.
-2.  **Update Site Identity:**
-    *   Replace the generic emoji favicon with the new Smart Man icon in `index.html`.
-    *   Potentially use the icon in the hero section or about section.
-3.  **Integrate Microsoft Clarity:**
-    *   Add the MS Clarity tracking script to the `<head>` section of `index.html` using the project ID `x2ntzlyr93`. (Already in blueprint, keeping for consistency)
+1.  **Implement SNS Sharing UI:**
+    *   Add a floating or fixed sharing button group to all pages (`index.html`, `lotto.html`, `meal.html`, `recipe.html`).
+    *   Create a reusable sharing component or utility.
+2.  **Integrate Social SDKs:**
+    *   Add Kakao SDK for robust sharing in the Korean market.
+    *   Set up sharing metadata (OG Tags) dynamically if possible.
+3.  **Styling & Feedback:**
+    *   Design vibrant, glowing buttons for each social platform.
+    *   Add "Toast" notifications for "URL Copied" feedback.
+4.  **Verification:**
+    *   Test sharing links on mobile devices and desktop.

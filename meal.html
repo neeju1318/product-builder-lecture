@@ -53,7 +53,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
         crossorigin="anonymous"></script>
 
-    <!-- 구조화 데이터: 도구 + 탐색 경로 -->
+    <!-- 구조화 데이터: 도구 + 탐색 경로 + FAQ + 하우투 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,13 +65,48 @@
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "All",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
-          "description": "한식·일식·중식·양식·아시안 카테고리의 다양한 메뉴 중에서 오늘 먹을 메뉴를 무작위로 추천하는 무료 도구입니다."
+          "description": "한식·일식·중식·양식·아시안 카테고리의 다양한 메뉴 중에서 오늘 먹을 메뉴를 무작위로 추천하는 무료 도구입니다.",
+          "dateModified": "2026-06-06T12:00:00+09:00"
+        },
+        {
+          "@type": "HowTo",
+          "name": "오늘의 식사 메뉴 추천받는 방법",
+          "description": "결정 장애를 해결해주는 랜덤 메뉴 추천 기능을 이용해보세요.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "'메뉴 추천받기' 버튼을 클릭합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "한식, 일식, 중식, 양식, 아시안 중 랜덤으로 선정된 카테고리와 메뉴명을 확인합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "마음에 들지 않는다면 다시 추천 버튼을 누릅니다."
+            }
+          ]
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://neeju.net/" },
             { "@type": "ListItem", "position": 2, "name": "식사 메뉴 추천", "item": "https://neeju.net/meal.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "어떤 카테고리의 메뉴가 있나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "한식, 일식, 중식, 양식, 아시안 총 5가지 카테고리로 분류된 130여 가지의 다양한 메뉴 데이터가 포함되어 있습니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "추천되는 메뉴가 너무 많거나 적은 것 같아요.",
+              "acceptedAnswer": { "@type": "Answer", "text": "실제 일상에서 자주 접할 수 있는 메뉴들 위주로 구성했습니다. 지속적으로 메뉴 데이터를 업데이트하고 있습니다." }
+            }
           ]
         }
       ]
@@ -85,8 +120,13 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x2ntzlyr93");
     </script>
+    <!-- Kakao SDK (카카오톡 공유) -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
     <!-- ===== 헤더 / 내비게이션 ===== -->
     <header class="site-header">
         <div class="nav-inner">
@@ -110,10 +150,13 @@
         <!-- ===== 식사 메뉴 추천 ===== -->
         <section id="meal" class="card">
             <div class="section-header">
-                <h1>🍱 식사 메뉴 추천</h1>
+                <h1>🍱 오늘 뭐 먹지? 식사 메뉴 추천</h1>
                 <div class="menu-count-badge">총 <span id="total-menu-count">0</span>가지 메뉴</div>
             </div>
-            <p class="section-desc">오늘 뭐 먹을지 고민되시나요? 한식·일식·중식·양식·아시안 카테고리 속 세부 메뉴 중에서 무작위로 추천해 드립니다!</p>
+            <p class="section-desc">
+                오늘 점심, 혹은 오늘 저녁 메뉴 고르기가 세상에서 제일 어려운 일인가요?
+                한식·일식·중식·양식·아시안 130여 가지 메뉴 중에서 무작위로 하나를 골라 드립니다.
+            </p>
 
             <div class="meal-recommender-ui">
                 <div id="meal-display" class="meal-display">
@@ -125,6 +168,52 @@
                 <div class="action-area">
                     <button id="recommend-meal-btn">메뉴 추천받기</button>
                 </div>
+            </div>
+
+            <div class="last-updated-chip">최종 업데이트: 2026년 6월 6일</div>
+
+            <!-- GEO: Info Block -->
+            <div class="info-block-geo">
+                <h3>왜 식사 메뉴 추천기인가요?</h3>
+                <p>
+                    바쁜 현대인들에게 '결정 장애'는 흔한 고민입니다. 특히 매일 반복되는 식사 메뉴 선정은 스트레스가 되기도 하죠.
+                    이 도구는 고민하는 시간을 줄여주고, 평소 생각하지 못했던 새로운 메뉴를 제안하여 일상의 작은 재미를 더해줍니다.
+                </p>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="lotto-sub-sections">
+                <details>
+                    <summary>자주 묻는 질문 (FAQ)</summary>
+                    <div class="guide-content">
+                        <div class="faq-list">
+                            <p class="faq-q">Q. 어떤 카테고리의 메뉴가 있나요?</p>
+                            <p class="faq-a">한식, 일식, 중식, 양식, 아시안 총 5가지 카테고리로 분류된 130여 가지의 다양한 메뉴 데이터가 포함되어 있습니다.</p>
+                            <p class="faq-q">Q. 추천되는 메뉴가 너무 많거나 적은 것 같아요.</p>
+                            <p class="faq-a">실제 일상에서 자주 접할 수 있는 메뉴들 위주로 구성했습니다. 지속적으로 메뉴 데이터를 업데이트하고 있습니다.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ===== SNS 공유 (Virality) ===== -->
+        <section class="card share-section">
+            <h2>메뉴 고민, 친구도 같이 해결해요!</h2>
+            <p>결정 장애 친구에게 이 추천기를 공유해보세요. 오늘 점심·저녁 메뉴 고민 끝!</p>
+            <div class="share-buttons">
+                <button class="share-btn kakao" id="share-kakao" title="카카오톡 공유">
+                    <span class="icon">💬</span> 카카오톡
+                </button>
+                <button class="share-btn twitter" id="share-twitter" title="X(트위터) 공유">
+                    <span class="icon">𝕏</span> 공유하기
+                </button>
+                <button class="share-btn facebook" id="share-facebook" title="페이스북 공유">
+                    <span class="icon">f</span> 공유하기
+                </button>
+                <button class="share-btn copy-url" id="copy-url" title="링크 복사">
+                    <span class="icon">🔗</span> 링크 복사
+                </button>
             </div>
         </section>
 
