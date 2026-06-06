@@ -1,0 +1,38 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="일상생활 유틸리티 모음 - 로또 번호 생성기 식사 메뉴 추천">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b1d29"/>
+      <stop offset="1" stop-color="#0c0d14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4757"/>
+      <stop offset="1" stop-color="#54a0ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#54a0ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#54a0ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="180" r="320" fill="url(#glow)"/>
+
+  <!-- Mascot badge -->
+  <circle cx="180" cy="170" r="74" stroke="url(#accent)" stroke-width="5" fill="#15161f"/>
+  <path d="M138 158C138 130 158 112 180 112C202 112 222 130 222 158" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="160" cy="178" r="7" fill="#54a0ff"/>
+  <circle cx="200" cy="178" r="7" fill="#54a0ff"/>
+  <path d="M160 205C168 214 192 214 200 205" stroke="#ff4757" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="280" y="185" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif" font-size="40" font-weight="700" fill="#b0b0b8">일상생활 유틸리티 모음</text>
+
+  <text x="80" y="360" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif" font-size="92" font-weight="800" fill="#ffffff" letter-spacing="-2">매일의 선택을</text>
+  <text x="80" y="468" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif" font-size="92" font-weight="800" letter-spacing="-2" fill="url(#accent)">더 가볍게</text>
+
+  <g font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif" font-size="34" font-weight="700">
+    <rect x="80" y="520" width="290" height="64" rx="32" fill="#15161f" stroke="#ff4757" stroke-width="2"/>
+    <text x="120" y="562" fill="#ffffff">🎱 로또 번호 생성기</text>
+    <rect x="392" y="520" width="270" height="64" rx="32" fill="#15161f" stroke="#54a0ff" stroke-width="2"/>
+    <text x="432" y="562" fill="#ffffff">🍱 식사 메뉴 추천</text>
+  </g>
+</svg>

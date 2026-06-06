@@ -1,0 +1,19 @@
+{
+  "name": "일상생활 유틸리티 모음",
+  "short_name": "일상 유틸리티",
+  "description": "로또 번호 생성기와 식사 메뉴 추천 등 일상생활에 유용한 무료 웹 도구 모음입니다.",
+  "lang": "ko",
+  "start_url": "/product-builder-lecture/",
+  "scope": "/product-builder-lecture/",
+  "display": "standalone",
+  "background_color": "#0c0d14",
+  "theme_color": "#ff4757",
+  "icons": [
+    {
+      "src": "assets/smart-man.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

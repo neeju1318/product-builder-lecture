@@ -191,6 +191,20 @@ h2 {
 
 .section-header h2 { margin: 0; }
 
+/* 도구 페이지의 메인 제목(h1)을 섹션 헤더 크기에 맞춤 (히어로 h1과 구분) */
+.card h1 {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.5px;
+}
+.section-header h1 { margin: 0; }
+
+/* FAQ 목록 */
+.faq-list { margin-top: 8px; }
+.faq-q { font-weight: 700; margin: 14px 0 4px; }
+.faq-a { color: var(--text-muted); margin: 0 0 8px; }
+
 .menu-count-badge {
     background: var(--accent-secondary);
     color: #fff;

@@ -12,7 +12,15 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff4757">
+    <meta name="format-detection" content="telephone=no">
     <meta name="google-adsense-account" content="ca-pub-2984052285615955">
+
+    <!-- 성능: 외부 도메인 사전 연결 (Core Web Vitals 개선) -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+
     <title>로또 번호 생성기 | 핫·콜드·랜덤 분석 기반 로또 6/45 추천</title>
     <meta name="description" content="최근 10회차 당첨 데이터를 분석한 무료 로또 번호 생성기. 자주 나온 핫넘버, 적게 나온 콜드넘버, 완전 랜덤 방식으로 로또 6/45 번호를 추천받고 출현 통계와 당첨 확률표도 확인하세요.">
     <meta name="keywords" content="로또번호생성기, 로또645, 핫넘버, 콜드넘버, 로또통계, 로또추천번호">
@@ -22,27 +30,71 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="일상생활 유틸리티 모음">
     <meta property="og:title" content="로또 번호 생성기 | 핫·콜드·랜덤 분석 기반">
     <meta property="og:description" content="최근 10회차 데이터를 분석한 무료 로또 번호 생성기. 핫넘버·콜드넘버·랜덤 방식으로 로또 6/45 번호를 추천받으세요.">
+    <meta property="og:url" content="https://neeju1318.github.io/product-builder-lecture/lotto.html">
+    <meta property="og:image" content="https://neeju1318.github.io/product-builder-lecture/assets/og-image.svg">
+    <meta property="og:image:alt" content="로또 번호 생성기 - 핫·콜드·랜덤 분석 기반 로또 6/45 추천">
     <meta property="og:locale" content="ko_KR">
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="로또 번호 생성기 | 핫·콜드·랜덤 분석 기반">
+    <meta name="twitter:description" content="최근 10회차 데이터를 분석한 무료 로또 번호 생성기. 핫넘버·콜드넘버·랜덤 방식으로 로또 6/45 번호를 추천받으세요.">
+    <meta name="twitter:image" content="https://neeju1318.github.io/product-builder-lecture/assets/og-image.svg">
+
     <link rel="icon" href="assets/smart-man.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/smart-man.svg">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="style.css">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
         crossorigin="anonymous"></script>
 
-    <!-- 구조화 데이터 -->
+    <!-- 구조화 데이터: 도구 + 탐색 경로 + 자주 묻는 질문 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "로또 번호 생성기",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
-      "description": "최근 10회차 당첨 데이터를 분석해 핫·콜드·랜덤 방식으로 로또 6/45 번호를 추천하는 무료 도구입니다."
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "로또 번호 생성기",
+          "url": "https://neeju1318.github.io/product-builder-lecture/lotto.html",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+          "description": "최근 10회차 당첨 데이터를 분석해 핫·콜드·랜덤 방식으로 로또 6/45 번호를 추천하는 무료 도구입니다."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://neeju1318.github.io/product-builder-lecture/" },
+            { "@type": "ListItem", "position": 2, "name": "로또 번호 생성기", "item": "https://neeju1318.github.io/product-builder-lecture/lotto.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "핫넘버와 콜드넘버는 무엇인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "핫넘버는 최근 10회차 당첨 데이터에서 자주 나온 번호, 콜드넘버는 상대적으로 적게 나온 번호입니다. 로또는 무작위 추첨이므로 통계는 참고용일 뿐 당첨을 보장하지 않습니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "이 로또 번호 생성기는 무료인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "네, 회원가입이나 결제 없이 누구나 무료로 로또 6/45 번호를 생성하고 출현 통계를 확인할 수 있습니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "로또 1등 당첨 확률은 얼마인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "로또 6/45에서 6개 번호가 모두 일치하는 1등 당첨 확률은 약 1/8,145,060입니다." }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <!-- Microsoft Clarity -->
@@ -77,7 +129,7 @@
         <!-- ===== 로또 번호 생성기 ===== -->
         <section id="lotto" class="card">
             <div class="section-header">
-                <h2>🎱 로또 번호 생성기</h2>
+                <h1>🎱 로또 번호 생성기</h1>
             </div>
             <p class="section-desc">
                 최근 10회차 당첨 데이터를 바탕으로 <strong>자주 나온 번호(핫)</strong>,
@@ -146,6 +198,16 @@
                             </table>
                         </div>
                         <p class="mt-10">※ 미성년자는 복권 구매가 금지되어 있습니다.</p>
+
+                        <h3>자주 묻는 질문 (FAQ)</h3>
+                        <div class="faq-list">
+                            <p class="faq-q">Q. 핫넘버와 콜드넘버는 무엇인가요?</p>
+                            <p class="faq-a">핫넘버는 최근 10회차 당첨 데이터에서 자주 나온 번호, 콜드넘버는 상대적으로 적게 나온 번호입니다. 로또는 무작위 추첨이므로 통계는 참고용일 뿐 당첨을 보장하지 않습니다.</p>
+                            <p class="faq-q">Q. 이 로또 번호 생성기는 무료인가요?</p>
+                            <p class="faq-a">네, 회원가입이나 결제 없이 누구나 무료로 로또 6/45 번호를 생성하고 출현 통계를 확인할 수 있습니다.</p>
+                            <p class="faq-q">Q. 로또 1등 당첨 확률은 얼마인가요?</p>
+                            <p class="faq-a">로또 6/45에서 6개 번호가 모두 일치하는 1등 당첨 확률은 약 1/8,145,060입니다.</p>
+                        </div>
                     </div>
                 </details>
             </div>

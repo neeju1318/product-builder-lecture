@@ -1,4 +1,18 @@
+# 모든 검색엔진 크롤러 허용
 User-agent: *
+Allow: /
+Disallow: /*-preview*.html$
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+
+# 구글 검색로봇
+User-agent: Googlebot
+Allow: /
+
+# 빙 검색로봇
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://neeju1318.github.io/product-builder-lecture/sitemap.xml
