@@ -19,6 +19,7 @@ This project is a collection of useful utility tools for daily life. It started 
 ### Shared Features
 *   **Theme Toggle:** Dark (default) / Light mode, persisted in localStorage.
 *   **SEO:** Meta description/keywords, Open Graph, canonical, JSON-LD, `robots.txt`, and `sitemap.xml`.
+*   **Analytics & Tracking:** Integrated Google Analytics (gtag.js) and Microsoft Clarity for user behavior analysis.
 *   **Google AdSense Integration:** Optimized for monetization.
 *   **Responsive Design:** Works perfectly on mobile and desktop.
 
@@ -29,14 +30,18 @@ This project is a collection of useful utility tools for daily life. It started 
 *   **Modern Components:** Use of Web Components for modularity and encapsulation.
 *   **Interactive UI:** Smooth transitions, animations, and glowing effects on interactive elements.
 
+### 3. Smart Man Mascot (스마트 맨 마스코트)
+*   **Visual Identity:** A friendly, intelligent-looking male character with a short sports cut and no glasses.
+*   **Purpose:** Used as a mascot or site representative to enhance the friendly utility tool vibe.
+*   **Implementation:** Scalable SVG asset for high-quality display on all devices.
+
 ## Current Plan
 
-1.  **Simplify and Consolidated Core Logic in `main.js`:**
-    *   Overwrite `main.js` with a unified script handling the Meal Recommender, Lotto Generator, and Theme Toggle.
-    *   Implement a massive meal database (100+ items) for the Recommender.
-    *   Add `canvas-confetti` for interactive feedback on meal recommendations.
-2.  **Verify UI Integration:**
-    *   Ensure `index.html` has the necessary IDs: `recommend-meal-btn`, `meal-display`, `total-menu-count`, `theme-btn`, `generate-btn`, and `numbers-container`.
-3.  **Enhance User Experience:**
-    *   Confirm the confetti effect works as expected.
-    *   Verify the random meal and number generation logic.
+1.  **Create Smart Man Icon:**
+    *   Design a modern SVG icon of a smart-looking man (short hair, no glasses, kind expression).
+    *   Save the asset as `assets/smart-man.svg`.
+2.  **Update Site Identity:**
+    *   Replace the generic emoji favicon with the new Smart Man icon in `index.html`.
+    *   Potentially use the icon in the hero section or about section.
+3.  **Integrate Microsoft Clarity:**
+    *   Add the MS Clarity tracking script to the `<head>` section of `index.html` using the project ID `x2ntzlyr93`. (Already in blueprint, keeping for consistency)
