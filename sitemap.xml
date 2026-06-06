@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://neeju.net/</loc>
+        <loc>https://neeju1318.github.io/product-builder-lecture/</loc>
         <lastmod>2026-06-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://neeju.net/assets/og-image.svg</image:loc>
-            <image:title>일상생활 유틸리티 모음</image:title>
-        </image:image>
     </url>
     <url>
-        <loc>https://neeju.net/lotto.html</loc>
+        <loc>https://neeju1318.github.io/product-builder-lecture/lotto.html</loc>
         <lastmod>2026-06-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-        <image:image>
-            <image:loc>https://neeju.net/assets/og-image.svg</image:loc>
-            <image:title>로또 번호 생성기</image:title>
-        </image:image>
     </url>
     <url>
-        <loc>https://neeju.net/meal.html</loc>
+        <loc>https://neeju1318.github.io/product-builder-lecture/meal.html</loc>
         <lastmod>2026-06-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-        <image:image>
-            <image:loc>https://neeju.net/assets/og-image.svg</image:loc>
-            <image:title>식사 메뉴 추천</image:title>
-        </image:image>
     </url>
     <url>
-        <loc>https://neeju.net/recipe.html</loc>
-        <lastmod>2026-06-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <image:image>
-            <image:loc>https://neeju.net/assets/og-image.svg</image:loc>
-            <image:title>야매 요리 레시피</image:title>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://neeju.net/privacy.html</loc>
+        <loc>https://neeju1318.github.io/product-builder-lecture/privacy.html</loc>
         <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://neeju.net/terms.html</loc>
+        <loc>https://neeju1318.github.io/product-builder-lecture/terms.html</loc>
         <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>

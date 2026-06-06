@@ -1,5 +1,0 @@
-# Cloudflare Pages 리다이렉트 — URL 정규화 (대표 URL로 통일)
-# index.html 변형을 루트로 301 통합
-/index.html   /   301
-/index        /   301
-/home         /   301
