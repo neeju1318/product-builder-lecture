@@ -205,6 +205,35 @@ h2 {
 .faq-q { font-weight: 700; margin: 14px 0 4px; }
 .faq-a { color: var(--text-muted); margin: 0 0 8px; }
 
+/* 야매 레시피 — 준비 중 배지 */
+.coming-badge { background: var(--text-muted); }
+
+/* 야매 정신 강조 박스 */
+.yamae-note {
+    margin: 24px 0;
+    padding: 20px 22px;
+    border-radius: 16px;
+    border: 2px dashed var(--accent-color);
+    background: var(--fill-track);
+}
+.yamae-note h2 { font-size: 1.2em; margin: 0 0 10px; }
+.yamae-list { margin: 0; padding-left: 20px; }
+.yamae-list li { margin: 8px 0; color: var(--text-muted); }
+.yamae-list strong { color: var(--text-color); }
+
+/* 커밍순 플레이스홀더 */
+.coming-soon {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 2px dashed var(--border-color);
+    background: var(--fill-track);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+.coming-soon .icon { font-size: 4em; display: block; margin-bottom: 12px; }
+.coming-title { font-size: 1.3em; font-weight: 800; margin: 0 0 8px; }
+.coming-desc { color: var(--text-muted); margin: 0; }
+
 .menu-count-badge {
     background: var(--accent-secondary);
     color: #fff;

@@ -32,6 +32,16 @@
         </image:image>
     </url>
     <url>
+        <loc>https://neeju1318.github.io/product-builder-lecture/recipe.html</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://neeju1318.github.io/product-builder-lecture/assets/og-image.svg</image:loc>
+            <image:title>야매 요리 레시피</image:title>
+        </image:image>
+    </url>
+    <url>
         <loc>https://neeju1318.github.io/product-builder-lecture/privacy.html</loc>
         <lastmod>2026-06-02</lastmod>
         <changefreq>yearly</changefreq>
