@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZLTNVFJP4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2ZLTNVFJP4');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-2984052285615955">
+    <title>로또 번호 생성기 | 핫·콜드·랜덤 분석 기반 로또 6/45 추천</title>
+    <meta name="description" content="최근 10회차 당첨 데이터를 분석한 무료 로또 번호 생성기. 자주 나온 핫넘버, 적게 나온 콜드넘버, 완전 랜덤 방식으로 로또 6/45 번호를 추천받고 출현 통계와 당첨 확률표도 확인하세요.">
+    <meta name="keywords" content="로또번호생성기, 로또645, 핫넘버, 콜드넘버, 로또통계, 로또추천번호">
+    <meta name="author" content="일상생활 유틸리티 모음">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://neeju1318.github.io/product-builder-lecture/lotto.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="로또 번호 생성기 | 핫·콜드·랜덤 분석 기반">
+    <meta property="og:description" content="최근 10회차 데이터를 분석한 무료 로또 번호 생성기. 핫넘버·콜드넘버·랜덤 방식으로 로또 6/45 번호를 추천받으세요.">
+    <meta property="og:locale" content="ko_KR">
+
+    <link rel="icon" href="assets/smart-man.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2984052285615955"
+        crossorigin="anonymous"></script>
+
+    <!-- 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "로또 번호 생성기",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "최근 10회차 당첨 데이터를 분석해 핫·콜드·랜덤 방식으로 로또 6/45 번호를 추천하는 무료 도구입니다."
+    }
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x2ntzlyr93");
+    </script>
+</head>
+<body>
+    <!-- ===== 헤더 / 내비게이션 ===== -->
+    <header class="site-header">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/smart-man.svg" alt="Smart Man Mascot" class="header-logo-img">
+                일상 유틸리티
+            </a>
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="lotto.html">로또 생성기</a>
+                <a href="meal.html">식사 추천</a>
+                <a href="index.html#contact">문의</a>
+            </nav>
+            <button id="theme-btn" aria-label="다크/라이트 모드 전환">🌓</button>
+        </div>
+    </header>
+
+    <main id="top">
+        <a href="index.html" class="back-link">← 대문으로 돌아가기</a>
+
+        <!-- ===== 로또 번호 생성기 ===== -->
+        <section id="lotto" class="card">
+            <div class="section-header">
+                <h2>🎱 로또 번호 생성기</h2>
+            </div>
+            <p class="section-desc">
+                최근 10회차 당첨 데이터를 바탕으로 <strong>자주 나온 번호(핫)</strong>,
+                <strong>적게 나온 번호(콜드)</strong>, <strong>완전 랜덤</strong> 중
+                원하는 방식을 골라 로또 6/45 번호를 무료로 추천받으세요.
+            </p>
+
+            <div class="mode-selector" role="group" aria-label="번호 생성 방식 선택">
+                <button class="mode-btn active" data-mode="hot">
+                    🔥 핫넘버<span>자주 나온 번호 위주</span>
+                </button>
+                <button class="mode-btn" data-mode="cold">
+                    ❄️ 콜드넘버<span>적게 나온 번호 위주</span>
+                </button>
+                <button class="mode-btn" data-mode="random">
+                    🎲 완전 랜덤<span>순수 무작위 추첨</span>
+                </button>
+            </div>
+
+            <p id="mode-desc" class="mode-desc"></p>
+
+            <div class="action-area">
+                <button id="generate-btn">번호 생성하기</button>
+            </div>
+            <div id="numbers-container" aria-live="polite"></div>
+
+            <p class="disclaimer-mini">
+                ※ 로또는 무작위 추첨이며, 과거 통계가 미래 당첨을 보장하지 않습니다. 본 도구는 재미를 위한 참고용입니다.
+            </p>
+
+            <div class="lotto-sub-sections">
+                <details>
+                    <summary>최근 회차 당첨번호 및 통계 보기</summary>
+                    <div class="details-content">
+                        <h3>최근 10회차 당첨번호</h3>
+                        <div id="recent-draws" class="recent-grid"></div>
+
+                        <h3>번호별 출현 통계</h3>
+                        <div id="freq-chart" class="freq-chart"></div>
+                        <div class="hotcold-summary">
+                            <div class="summary-box hot-box">
+                                <h3>🔥 핫넘버 TOP 6</h3>
+                                <div id="top-hot" class="mini-balls"></div>
+                            </div>
+                            <div class="summary-box cold-box">
+                                <h3>❄️ 콜드넘버 TOP 6</h3>
+                                <div id="top-cold" class="mini-balls"></div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary>로또 6/45 가이드 & FAQ</summary>
+                    <div class="guide-content">
+                        <h3>당첨 확률 표</h3>
+                        <div class="table-wrap">
+                            <table class="info-table">
+                                <thead><tr><th>등위</th><th>조건</th><th>확률</th></tr></thead>
+                                <tbody>
+                                    <tr><td>1등</td><td>6개 일치</td><td>1/8,145,060</td></tr>
+                                    <tr><td>2등</td><td>5개+보너스 일치</td><td>1/1,357,510</td></tr>
+                                    <tr><td>3등</td><td>5개 일치</td><td>1/35,724</td></tr>
+                                    <tr><td>4등</td><td>4개 일치</td><td>1/733</td></tr>
+                                    <tr><td>5등</td><td>3개 일치</td><td>1/45</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-10">※ 미성년자는 복권 구매가 금지되어 있습니다.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 광고 (인-콘텐츠) -->
+        <div class="ad-container" aria-hidden="true">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2984052285615955"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <!-- ===== 푸터 ===== -->
+    <footer class="site-footer">
+        <nav class="footer-nav" aria-label="하단 메뉴">
+            <a href="privacy.html">개인정보처리방침</a>
+            <a href="terms.html">이용약관</a>
+            <a href="index.html#contact">문의하기</a>
+            <a href="https://www.dhlottery.co.kr/" target="_blank" rel="noopener noreferrer">동행복권 공식</a>
+        </nav>
+        <p class="footer-disclaimer">
+            본 사이트는 비공식 정보 제공 서비스이며, 제공되는 서비스는 참고용입니다.
+            이용에 따른 책임은 이용자 본인에게 있습니다.
+        </p>
+        <p class="copyright">© 2026 일상생활 유틸리티 모음. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
